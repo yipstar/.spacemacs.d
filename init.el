@@ -274,7 +274,16 @@ you should place your code here."
 
   (setq mac-command-modifier 'meta) ;; Bind meta to COMMAND
 
-  (setq dotspacemacs-folding-method 'origami)
+  ;; Keep backups in system temp
+  (setq backup-directory-alist
+        `((".*" . ,temporary-file-directory)))
+  (setq auto-save-file-name-transforms
+        `((".*" ,temporary-file-directory t)))
+
+  ;; disable lockfiles
+  (setq create-lockfiles nil)
+
+  ;; (setq dotspacemacs-folding-method 'origami)
 
   (setq-default
    ;; js2-mode
